@@ -1,11 +1,17 @@
+<!--
+SPDX-FileCopyrightText: 2021-2025 gba-toolchain contributors
+SPDX-FileCopyrightText: 2025 Jason Pena <jasonpena@awkless.com>
+SPDX-License-Identifier: Zlib
+-->
+
 # gba-toolchain
 
-# Requirements
+## Requirements
 
 * [CMake](https://cmake.org/) (3.18 minimum)
 * Arm compiler toolchain ([Arm GNU Toolchain](https://developer.arm.com/downloads/-/arm-gnu-toolchain-downloads), [devkitPro](https://devkitpro.org/))
 
-# Basic usage
+## Basic usage
 
 gba-toolchain provides a CMake toolchain file "`cmake/gba.toolchain.cmake`" that sets up compilers & tools for GBA development.
 
@@ -49,7 +55,7 @@ Objects of `configurePresets` has the member `toolchainFile`:
 }
 ```
 
-# Example CMakeLists.txt
+## Example CMakeLists.txt
 
 ```cmake
 cmake_minimum_required(VERSION 3.18)
@@ -65,7 +71,7 @@ if(CMAKE_SYSTEM_NAME STREQUAL AdvancedGameBoy)
 
     target_compile_options(my_executable PRIVATE -mthumb -fconserve-stack -fomit-frame-pointer)
     target_link_libraries(my_executable PRIVATE librom libseven agbabi)
-    
+
     # ROM header info
     set_target_properties(my_executable PROPERTIES
         ROM_TITLE "My Game"
